@@ -1,0 +1,16 @@
+[Unit]
+Description=DoAide EMIBuddy API
+After=network.target
+
+[Service]
+Type=simple
+User=dev
+WorkingDirectory=/home/dev/projects/Products/DoAide-EMIBuddy/backend
+Environment=PORT=3073
+EnvironmentFile=/home/dev/projects/Products/DoAide-EMIBuddy/backend/.env
+ExecStart=/home/dev/projects/Products/DoAide-EMIBuddy/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 3073
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
