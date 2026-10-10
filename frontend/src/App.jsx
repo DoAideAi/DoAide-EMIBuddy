@@ -11,6 +11,8 @@ import PPFCalculator from './pages/PPFCalculator'
 import NPSCalculator from './pages/NPSCalculator'
 import AffordabilityCalculator from './pages/AffordabilityCalculator'
 import BankEMI from './pages/BankEMI'
+import BlogList from './pages/BlogList'
+import BlogPost from './pages/BlogPost'
 
 export default function App() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
         <Route path="/nps-calculator" element={<NPSCalculator />} />
         <Route path="/affordability-calculator" element={<AffordabilityCalculator />} />
         <Route path="/banks/:bankSlug" element={<BankEMI />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
     </Layout>
   )

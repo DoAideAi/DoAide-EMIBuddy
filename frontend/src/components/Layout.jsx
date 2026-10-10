@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: '/loan-comparison', label: 'Compare' },
   { to: '/fd-calculator', label: 'FD' },
   { to: '/ppf-calculator', label: 'PPF' },
+  { to: '/blog', label: 'Blog' },
 ]
 
 export default function Layout({ children }) {
@@ -82,7 +83,7 @@ export default function Layout({ children }) {
 
       <footer className="border-t border-brand-border py-8 mt-12">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <h3 className="font-bold text-white mb-3">EMIBuddy</h3>
               <p className="text-sm text-brand-muted">
@@ -101,6 +102,15 @@ export default function Layout({ children }) {
                 <li><Link to="/fd-calculator" className="hover:text-brand-primary transition-colors">FD Calculator</Link></li>
                 <li><Link to="/ppf-calculator" className="hover:text-brand-primary transition-colors">PPF Calculator</Link></li>
                 <li><Link to="/nps-calculator" className="hover:text-brand-primary transition-colors">NPS Calculator</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-white mb-3">Resources</h3>
+              <ul className="space-y-2 text-sm text-brand-muted">
+                <li><Link to="/blog" className="hover:text-brand-primary transition-colors">Financial Blog</Link></li>
+                <li><Link to="/blog/home-loan-emi-guide-india-2025" className="hover:text-brand-primary transition-colors">Home Loan EMI Guide</Link></li>
+                <li><Link to="/blog/sip-vs-lumpsum-investment-india" className="hover:text-brand-primary transition-colors">SIP vs Lumpsum Guide</Link></li>
+                <li><Link to="/blog/ppf-vs-fd-comparison-india" className="hover:text-brand-primary transition-colors">PPF vs FD Comparison</Link></li>
               </ul>
             </div>
             <div>
