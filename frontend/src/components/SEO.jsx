@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 export default function SEO({ title, description, path = '', keywords = '' }) {
-  const fullTitle = title ? `${title} | EMIBuddy` : 'EMIBuddy - Free EMI Calculator, SIP Calculator & Loan Tools for India'
+  const fullTitle = title ? `${title} | DoAide EMIBuddy` : 'DoAide | EMIBuddy - Free EMI Calculator, SIP Calculator & Loan Tools for India'
   const url = `https://emi.doaide.com${path}`
 
   return (

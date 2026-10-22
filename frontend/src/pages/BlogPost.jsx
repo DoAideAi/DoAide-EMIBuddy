@@ -13,12 +13,12 @@ export default function BlogPost() {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    author: { '@type': 'Organization', name: 'EMIBuddy', url: 'https://emi.doaide.com' },
+    author: { '@type': 'Organization', name: 'EMIBuddy', url: 'https://emibuddy.doaide.com' },
     publisher: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
     datePublished: post.datePublished,
     dateModified: post.dateModified,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://emi.doaide.com/blog/${post.slug}` },
-    url: `https://emi.doaide.com/blog/${post.slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://emibuddy.doaide.com/blog/${post.slug}` },
+    url: `https://emibuddy.doaide.com/blog/${post.slug}`,
     keywords: post.keywords,
     articleSection: post.category,
   }
@@ -39,10 +39,10 @@ export default function BlogPost() {
         <title>{post.title} | EMIBuddy</title>
         <meta name="description" content={post.description} />
         <meta name="keywords" content={post.keywords} />
-        <link rel="canonical" href={`https://emi.doaide.com/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://emibuddy.doaide.com/blog/${post.slug}`} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.description} />
-        <meta property="og:url" content={`https://emi.doaide.com/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://emibuddy.doaide.com/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />

@@ -1,18 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+  --da-primary: #0D9488;
+  --da-primary-rgb: 13 148 136;
+  --da-primary-hover: #0F766E;
+  --da-primary-hover-rgb: 15 118 110;
+  --da-bg: #FFFFFF;
+  --da-bg-rgb: 255 255 255;
+  --da-surface: #F8FFFE;
+  --da-surface-rgb: 248 255 254;
+  --da-text: #1E293B;
+  --da-text-rgb: 30 41 59;
+  --da-muted: #64748B;
+  --da-muted-rgb: 100 116 139;
+  --da-border: #E2E8F0;
+  --da-border-rgb: 226 232 240;
+  --da-card: #FFFFFF;
+  --da-card-rgb: 255 255 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --da-primary: #14B8A6;
+    --da-primary-rgb: 20 184 166;
+    --da-primary-hover: #0D9488;
+    --da-primary-hover-rgb: 13 148 136;
+    --da-bg: #0F172A;
+    --da-bg-rgb: 15 23 42;
+    --da-surface: #1E293B;
+    --da-surface-rgb: 30 41 59;
+    --da-text: #F1F5F9;
+    --da-text-rgb: 241 245 249;
+    --da-muted: #94A3B8;
+    --da-muted-rgb: 148 163 184;
+    --da-border: #334155;
+    --da-border-rgb: 51 65 85;
+    --da-card: #1E293B;
+    --da-card-rgb: 30 41 59;
+  }
+}
+
+:root[data-theme="dark"] {
+  --da-primary: #14B8A6;
+  --da-primary-rgb: 20 184 166;
+  --da-primary-hover: #0D9488;
+  --da-primary-hover-rgb: 13 148 136;
+  --da-bg: #0F172A;
+  --da-bg-rgb: 15 23 42;
+  --da-surface: #1E293B;
+  --da-surface-rgb: 30 41 59;
+  --da-text: #F1F5F9;
+  --da-text-rgb: 241 245 249;
+  --da-muted: #94A3B8;
+  --da-muted-rgb: 148 163 184;
+  --da-border: #334155;
+  --da-border-rgb: 51 65 85;
+  --da-card: #1E293B;
+  --da-card-rgb: 30 41 59;
+}
+
 body {
-  background-color: #0a0a0a;
-  color: #e5e5e5;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--da-bg);
+  color: var(--da-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 ::selection {
-  background-color: #3B82F6;
+  background-color: var(--da-primary);
   color: white;
 }
 
 input, select, textarea {
-  color-scheme: dark;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  input, select, textarea {
+    color-scheme: dark;
+  }
 }

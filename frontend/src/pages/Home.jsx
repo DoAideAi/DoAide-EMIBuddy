@@ -7,7 +7,7 @@ const CALCULATORS = [
     title: 'EMI Calculator',
     desc: 'Calculate monthly EMI for home loan, car loan, personal loan & education loan with amortization schedule.',
     icon: '🏠',
-    color: 'from-blue-500/20 to-blue-600/5',
+    color: 'from-teal-500/20 to-teal-600/5',
   },
   {
     to: '/sip-calculator',
@@ -21,7 +21,7 @@ const CALCULATORS = [
     title: 'Lumpsum Calculator',
     desc: 'Calculate returns on one-time investments in mutual funds, stocks or other instruments.',
     icon: '💰',
-    color: 'from-yellow-500/20 to-yellow-600/5',
+    color: 'from-teal-400/20 to-teal-500/5',
   },
   {
     to: '/loan-comparison',
@@ -35,14 +35,14 @@ const CALCULATORS = [
     title: 'Prepayment Calculator',
     desc: 'See how much you save by making part-prepayments on your loan.',
     icon: '⚡',
-    color: 'from-orange-500/20 to-orange-600/5',
+    color: 'from-cyan-500/20 to-cyan-600/5',
   },
   {
     to: '/fd-calculator',
     title: 'FD Calculator',
     desc: 'Fixed Deposit maturity calculator with tax impact for all compounding frequencies.',
     icon: '🏦',
-    color: 'from-cyan-500/20 to-cyan-600/5',
+    color: 'from-sky-500/20 to-sky-600/5',
   },
   {
     to: '/ppf-calculator',
@@ -86,23 +86,23 @@ export default function Home() {
       />
 
       <section className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Free Financial Calculators for <span className="text-brand-primary">India</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-da-text mb-4">
+          Free Financial Calculators for <span className="text-da-primary">India</span>
         </h1>
-        <p className="text-lg text-brand-muted max-w-2xl mx-auto mb-8">
+        <p className="text-lg text-da-muted max-w-2xl mx-auto mb-8">
           Calculate EMI, plan SIP investments, compare loans, and make smarter financial
           decisions. No login, no ads, completely free.
         </p>
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           <Link
             to="/emi-calculator"
-            className="px-6 py-3 bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold rounded-lg transition-colors"
+            className="px-6 py-3 bg-da-primary hover:bg-da-primary-hover text-white font-semibold rounded-lg transition-colors"
           >
             Calculate EMI
           </Link>
           <Link
             to="/sip-calculator"
-            className="px-6 py-3 bg-brand-card hover:bg-brand-border text-white font-semibold rounded-lg border border-brand-border transition-colors"
+            className="px-6 py-3 bg-da-card hover:bg-da-border text-da-text font-semibold rounded-lg border border-da-border transition-colors"
           >
             Plan SIP
           </Link>
@@ -115,28 +115,28 @@ export default function Home() {
             <Link
               key={calc.to}
               to={calc.to}
-              className="group p-6 rounded-xl border border-brand-border bg-brand-card hover:border-brand-primary/50 transition-all"
+              className="group p-6 rounded-xl border border-da-border bg-da-card hover:border-da-primary/50 transition-all"
             >
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${calc.color} flex items-center justify-center text-2xl mb-4`}>
                 {calc.icon}
               </div>
-              <h2 className="text-lg font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">
+              <h2 className="text-lg font-bold text-da-text mb-2 group-hover:text-da-primary transition-colors">
                 {calc.title}
               </h2>
-              <p className="text-sm text-brand-muted">{calc.desc}</p>
+              <p className="text-sm text-da-muted">{calc.desc}</p>
             </Link>
           ))}
         </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">Bank-Specific EMI Calculators</h2>
+        <h2 className="text-2xl font-bold text-da-text mb-6 text-center">Bank-Specific EMI Calculators</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {BANK_LINKS.map(bank => (
             <Link
               key={bank.to}
               to={bank.to}
-              className="p-3 rounded-lg border border-brand-border bg-brand-card hover:border-brand-primary/50 text-center text-sm text-brand-muted hover:text-brand-primary transition-all"
+              className="p-3 rounded-lg border border-da-border bg-da-card hover:border-da-primary/50 text-center text-sm text-da-muted hover:text-da-primary transition-all"
             >
               {bank.label}
             </Link>
@@ -145,20 +145,20 @@ export default function Home() {
       </section>
 
       <section className="max-w-4xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">How EMI is Calculated</h2>
-        <div className="p-6 rounded-xl border border-brand-border bg-brand-card">
-          <p className="text-brand-muted mb-4">
+        <h2 className="text-2xl font-bold text-da-text mb-6 text-center">How EMI is Calculated</h2>
+        <div className="p-6 rounded-xl border border-da-border bg-da-card">
+          <p className="text-da-muted mb-4">
             EMI (Equated Monthly Installment) is calculated using the standard reducing balance formula:
           </p>
-          <div className="bg-brand-dark p-4 rounded-lg text-center mb-4">
-            <p className="text-white font-mono text-lg">
+          <div className="bg-da-surface p-4 rounded-lg text-center mb-4">
+            <p className="text-da-text font-mono text-lg">
               EMI = P × r × (1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> - 1)
             </p>
           </div>
-          <p className="text-brand-muted text-sm">
-            Where <strong className="text-white">P</strong> = Principal loan amount,{' '}
-            <strong className="text-white">r</strong> = Monthly interest rate (annual rate / 12 / 100),{' '}
-            <strong className="text-white">n</strong> = Number of monthly installments.
+          <p className="text-da-muted text-sm">
+            Where <strong className="text-da-text">P</strong> = Principal loan amount,{' '}
+            <strong className="text-da-text">r</strong> = Monthly interest rate (annual rate / 12 / 100),{' '}
+            <strong className="text-da-text">n</strong> = Number of monthly installments.
           </p>
         </div>
       </section>
