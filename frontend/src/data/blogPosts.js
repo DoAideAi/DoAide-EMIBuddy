@@ -1,5 +1,194 @@
 const BLOG_POSTS = [
   {
+    slug: 'emi-calculator-home-loan-india',
+    title: 'EMI Calculator for Home Loan India: How Much Will Your EMI Really Be? (2026)',
+    description: 'Free EMI calculator for home loan India. See your exact monthly EMI, total interest for every tenure, and how prepayment saves lakhs — no login needed.',
+    keywords: 'EMI calculator for home loan India, home loan EMI calculator, free EMI calculator online, home loan EMI 2026, housing loan EMI calculator India, EMI calculation formula, home loan interest 2026',
+    author: 'EMIBuddy Team',
+    datePublished: '2026-10-22',
+    dateModified: '2026-10-22',
+    readTime: '8 min read',
+    category: 'Home Loans',
+    faqs: [
+      {
+        question: 'How do I calculate the EMI for a home loan in India?',
+        answer: 'EMI is calculated with the reducing balance formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100) and n is the number of monthly installments. For a ₹50 lakh loan at 8.5% for 20 years, the EMI is about ₹43,391. The easiest way is to use a free online EMI calculator — enter the amount, rate and tenure, and you get the EMI plus the full amortization schedule instantly.',
+      },
+      {
+        question: 'What is the EMI for a ₹30 lakh home loan for 20 years?',
+        answer: 'At 8.5% interest, the EMI on a ₹30 lakh home loan for 20 years is approximately ₹26,035 per month. Over the full tenure you would pay roughly ₹32.5 lakh as interest. At 9% the EMI rises to about ₹26,992. Use an EMI calculator to check the exact figure for the rate your bank quotes.',
+      },
+      {
+        question: 'Which tenure is best for a home loan — 15, 20 or 30 years?',
+        answer: 'Shorter tenures save enormous amounts of interest. On a ₹50 lakh loan at 8.5%, a 15-year tenure costs about ₹38.6 lakh in interest, 20 years costs ₹54.1 lakh, and 30 years costs ₹88.4 lakh. Choose the shortest tenure whose EMI stays within 40-50% of your take-home salary, or take a longer tenure and prepay aggressively.',
+      },
+      {
+        question: 'Does the EMI change when the RBI changes the repo rate?',
+        answer: 'Yes, for floating-rate loans. Since October 2019, retail floating-rate home loans are linked to an external benchmark, usually the repo rate. When the repo rate changes, banks reset your loan rate (typically every 3 months). Most banks keep the EMI constant and adjust the tenure instead, but you can ask the bank to adjust the EMI rather than the tenure.',
+      },
+      {
+        question: 'Is an online EMI calculator accurate?',
+        answer: 'Yes. Online EMI calculators use the same reducing-balance formula that all Indian banks use, so the EMI figure matches what the bank quotes for the same amount, rate and tenure. Small differences can appear in the amortization schedule due to the disbursal date and leap-year day-count conventions, but the EMI itself is exact.',
+      },
+      {
+        question: 'What costs does the EMI not include?',
+        answer: 'The EMI covers only principal and interest. Budget separately for processing fees (0.25-1% of the loan), stamp duty and registration on the property (5-7% in most states), home insurance, and any prepayment of your own margin (banks finance only 75-90% of the property value).',
+      },
+    ],
+    content: `
+      <h2>Why Calculate Your EMI Before You Apply</h2>
+      <p>A home loan is a 15-30 year commitment, and the difference between a well-planned loan and a hasty one is often ₹20-30 lakh in interest. An <a href="/emi-calculator">EMI calculator for home loan</a> shows you — in seconds — exactly what a given loan amount, interest rate and tenure will cost you every month and over the full tenure. Before you walk into a bank branch in 2026, you should already know your numbers better than the loan officer does.</p>
+
+      <h2>The Home Loan EMI Formula</h2>
+      <p>Every Indian bank uses the same reducing-balance formula:</p>
+      <p><strong>EMI = P × r × (1+r)<sup>n</sup> / ((1+r)<sup>n</sup> − 1)</strong></p>
+      <ul>
+        <li><strong>P</strong> = Loan amount (e.g., ₹50,00,000)</li>
+        <li><strong>r</strong> = Monthly interest rate = annual rate ÷ 12 ÷ 100 (8.5% → 0.007083)</li>
+        <li><strong>n</strong> = Number of monthly installments (20 years = 240)</li>
+      </ul>
+      <p>For a ₹50 lakh loan at 8.5% for 20 years, this gives an EMI of <strong>₹43,391</strong>. You could do this on paper, but a calculator also shows the month-by-month split between interest and principal — which is where the real insights are.</p>
+
+      <h2>EMI for ₹50 Lakh at 8.5%: Every Tenure Compared</h2>
+      <p>Tenure is the single biggest lever on your total interest. Here is the same ₹50 lakh loan at 8.5% across tenures:</p>
+      <ul>
+        <li><strong>10 years</strong>: EMI ₹61,993 — total interest ₹24.39 lakh</li>
+        <li><strong>15 years</strong>: EMI ₹49,237 — total interest ₹38.63 lakh</li>
+        <li><strong>20 years</strong>: EMI ₹43,391 — total interest ₹54.14 lakh</li>
+        <li><strong>25 years</strong>: EMI ₹40,261 — total interest ₹70.78 lakh</li>
+        <li><strong>30 years</strong>: EMI ₹38,446 — total interest ₹88.40 lakh</li>
+      </ul>
+      <p>Notice the trap: stretching from 20 to 30 years reduces the EMI by barely ₹5,000 but adds <strong>₹34 lakh</strong> of interest. If the 20-year EMI is affordable, the 30-year tenure is almost never worth it.</p>
+
+      <h2>How Much Does the Interest Rate Matter?</h2>
+      <p>For the same ₹50 lakh, 20-year loan:</p>
+      <ul>
+        <li><strong>8.0%</strong>: EMI ₹41,822 — total interest ₹50.37 lakh</li>
+        <li><strong>8.5%</strong>: EMI ₹43,391 — total interest ₹54.14 lakh</li>
+        <li><strong>9.0%</strong>: EMI ₹44,986 — total interest ₹57.97 lakh</li>
+        <li><strong>9.5%</strong>: EMI ₹46,607 — total interest ₹61.86 lakh</li>
+      </ul>
+      <p>Every 0.5% costs you roughly ₹4 lakh over the tenure. This is why maintaining a CIBIL score above 750 and comparing at least three banks with our <a href="/loan-comparison">Loan Comparison Tool</a> pays off so handsomely. In 2026, home loan rates at major banks broadly range from about 8.25% to 9.5% depending on your credit profile and loan size.</p>
+
+      <h2>The Prepayment Superpower</h2>
+      <p>RBI rules prohibit prepayment penalties on floating-rate home loans, which makes part-prepayment the most powerful money-saving tool available to Indian borrowers. Paying just ₹1 lakh extra per year on a ₹50 lakh, 8.5%, 20-year loan can cut 4-5 years off the tenure and save ₹12-15 lakh in interest. Run your own numbers in the <a href="/prepayment-calculator">Prepayment Calculator</a> — enter a one-time or yearly prepayment and see the tenure and interest savings instantly.</p>
+
+      <h2>How Much Loan Can You Actually Afford?</h2>
+      <p>Banks will often sanction more than you should borrow. A healthy rule: total EMIs (home loan plus car loan plus any personal loans) should stay under 40-50% of your monthly take-home pay. On a ₹1.2 lakh take-home, that caps your home loan EMI around ₹50,000-55,000 — roughly a ₹55-60 lakh loan at current rates. Check your number with the <a href="/affordability-calculator">Affordability Calculator</a> before you start property hunting, not after.</p>
+
+      <h2>How to Use the EMIBuddy Home Loan EMI Calculator</h2>
+      <ol>
+        <li>Open the free <a href="/emi-calculator">EMI Calculator</a> — no login, no phone number</li>
+        <li>Enter the loan amount, interest rate quoted by your bank, and tenure</li>
+        <li>Read the EMI, total interest and total payment</li>
+        <li>Open the amortization schedule to see how much principal you actually repay in the first 5 years (spoiler: very little — early EMIs are mostly interest)</li>
+        <li>Try a shorter tenure and a 0.25% lower rate to see what negotiating harder is worth</li>
+      </ol>
+
+      <h2>Don't Forget the Tax Benefits</h2>
+      <p>Under the old tax regime, you can claim up to ₹1.5 lakh of principal repayment under Section 80C and up to ₹2 lakh of interest under Section 24(b) each financial year. If you have opted for the new regime (the default since FY 2023-24), these deductions are not available for self-occupied property — factor that into your old-vs-new regime decision for FY 2026-27.</p>
+
+      <h2>Plan Your Loan the Smart Way</h2>
+      <p>Start with the <a href="/emi-calculator">EMI Calculator</a>, stress-test your budget with the <a href="/affordability-calculator">Affordability Calculator</a>, and read our detailed <a href="/blog/home-loan-emi-guide-india-2025">Home Loan EMI Guide</a> for strategies to reduce your EMI after you have taken the loan. Thirty minutes of planning now can genuinely save you ₹20 lakh later.</p>
+    `,
+  },
+  {
+    slug: 'sip-calculator-india-2026',
+    title: 'SIP Calculator India 2026: How Much Should You Invest Monthly?',
+    description: 'Free SIP calculator India 2026 guide. See what ₹5,000/month grows to in 10-20 years, how step-up SIPs double your corpus, and how much you need for ₹1 crore.',
+    keywords: 'SIP calculator India 2026, SIP calculator online free, mutual fund SIP calculator, step up SIP calculator, SIP returns calculator India, how much SIP per month, 1 crore SIP plan',
+    author: 'EMIBuddy Team',
+    datePublished: '2026-10-22',
+    dateModified: '2026-10-22',
+    readTime: '9 min read',
+    category: 'Investments',
+    faqs: [
+      {
+        question: 'How much will a ₹5,000 monthly SIP grow to in 20 years?',
+        answer: 'At a 12% annual return, a ₹5,000 monthly SIP grows to approximately ₹49.96 lakh in 20 years, against a total investment of ₹12 lakh. At a more conservative 10% it reaches about ₹38.3 lakh, and at 14% about ₹65.8 lakh. The same SIP with a 10% annual step-up reaches roughly ₹99.4 lakh at 12% — nearly double.',
+      },
+      {
+        question: 'How much SIP do I need per month to reach ₹1 crore?',
+        answer: 'Assuming a 12% annual return: about ₹10,000 per month for 20 years, or about ₹19,800 per month for 15 years. If you start with less, use a step-up SIP — starting at ₹5,000 and increasing 10% every year also gets you to roughly ₹1 crore in 20 years at 12%.',
+      },
+      {
+        question: 'What return should I assume in a SIP calculator for 2026?',
+        answer: 'For equity mutual funds, 10-12% per annum is a reasonable long-term assumption; aggressive assumptions like 15%+ set you up for disappointment. For hybrid funds assume 9-10%, and for debt funds 6-7%. Indian equity markets have historically delivered around 12% CAGR over long periods, but shorter periods can vary wildly — always plan with conservative numbers.',
+      },
+      {
+        question: 'Is SIP better than a lumpsum investment?',
+        answer: 'SIP is better for most salaried investors because it matches how income arrives, removes market-timing stress, and benefits from rupee cost averaging in volatile markets. Lumpsum can outperform when markets are depressed and you already have the corpus. Many investors do both: a regular SIP plus tactical lumpsum top-ups during market corrections.',
+      },
+      {
+        question: 'How are SIP returns taxed in India?',
+        answer: 'For equity funds, units held over 12 months attract Long-Term Capital Gains tax at 12.5% on gains above ₹1.25 lakh per financial year; units held under 12 months attract 20% Short-Term Capital Gains tax. Each SIP installment has its own purchase date, so when you redeem, recent installments may still be short-term even if the SIP is years old.',
+      },
+      {
+        question: 'Can I stop or pause my SIP anytime?',
+        answer: 'Yes. SIPs in open-ended mutual funds are fully flexible — you can pause, stop, increase or decrease them without penalty. (ELSS tax-saver funds are the exception: each installment is locked in for 3 years.) Stopping a SIP does not redeem your existing units; they stay invested and keep compounding.',
+      },
+    ],
+    content: `
+      <h2>What a SIP Calculator Actually Tells You</h2>
+      <p>A <a href="/sip-calculator">SIP calculator</a> answers the three questions every Indian investor asks: what will my monthly investment grow to, how much of that is my own money versus returns, and how much do I need to invest for a specific goal like ₹1 crore. In 2026, with SIP inflows at record highs and thousands of funds to choose from, getting these numbers right before you start matters more than picking the "best" fund.</p>
+
+      <h2>The SIP Formula Behind the Calculator</h2>
+      <p>SIP maturity value uses the future value of an annuity:</p>
+      <p><strong>FV = P × [((1+i)<sup>n</sup> − 1) / i] × (1+i)</strong></p>
+      <ul>
+        <li><strong>P</strong> = Monthly SIP amount</li>
+        <li><strong>i</strong> = Monthly return = annual return ÷ 12 (12% → 1% per month)</li>
+        <li><strong>n</strong> = Number of monthly installments</li>
+      </ul>
+      <p>You never need to compute this by hand — but understanding it explains why time in the market beats everything else: n sits in the exponent.</p>
+
+      <h2>What ₹5,000 a Month Becomes (at 12%)</h2>
+      <ul>
+        <li><strong>5 years</strong>: ₹4.12 lakh (invested ₹3 lakh)</li>
+        <li><strong>10 years</strong>: ₹11.62 lakh (invested ₹6 lakh)</li>
+        <li><strong>15 years</strong>: ₹25.23 lakh (invested ₹9 lakh)</li>
+        <li><strong>20 years</strong>: ₹49.96 lakh (invested ₹12 lakh)</li>
+      </ul>
+      <p>Look at the acceleration: the first 10 years earn you about ₹5.6 lakh of growth, the next 10 earn over ₹32 lakh. That is compounding — and it is exactly why stopping a SIP in year 8 to buy a car is so expensive, and why starting at 25 instead of 35 can mean retiring with double the corpus.</p>
+
+      <h2>The Step-Up SIP: The Most Underrated Feature in Investing</h2>
+      <p>Your salary grows every year — your SIP should too. A step-up (or top-up) SIP automatically increases your installment by a fixed percentage annually. The difference is dramatic:</p>
+      <ul>
+        <li><strong>Flat ₹5,000/month, 20 years at 12%</strong>: corpus ₹49.96 lakh (invested ₹12 lakh)</li>
+        <li><strong>₹5,000/month with 10% annual step-up, 20 years at 12%</strong>: corpus <strong>₹99.44 lakh</strong> (invested ₹34.37 lakh)</li>
+      </ul>
+      <p>Same starting amount, same fund, same market — nearly double the final corpus. If your increments average 8-10% a year, a 10% step-up costs you nothing in lifestyle terms.</p>
+
+      <h2>How Much Do You Need for ₹1 Crore?</h2>
+      <p>At a 12% assumed return:</p>
+      <ul>
+        <li><strong>20 years</strong>: ≈ ₹10,000 per month</li>
+        <li><strong>15 years</strong>: ≈ ₹19,800 per month</li>
+        <li><strong>10 years</strong>: ≈ ₹43,500 per month</li>
+      </ul>
+      <p>The lesson is brutal and liberating at once: every 5 years you delay roughly doubles the monthly amount required. Whatever you can start with today — even ₹1,000 — start today and step it up later.</p>
+
+      <h2>What Return Should You Assume in 2026?</h2>
+      <p>Be conservative. Nifty 50 index funds have historically delivered around 11-12% CAGR over 15+ year periods, but any single decade can be far better or worse. Sensible planning assumptions for 2026:</p>
+      <ul>
+        <li><strong>Large-cap / index funds</strong>: 10-12%</li>
+        <li><strong>Flexi-cap / mid-cap funds</strong>: 11-13% (with higher volatility)</li>
+        <li><strong>Hybrid funds</strong>: 9-10%</li>
+        <li><strong>Debt funds</strong>: 6-7%</li>
+      </ul>
+      <p>If your goal still works at 10%, you have a robust plan. If it only works at 15%, you have a wish.</p>
+
+      <h2>SIP vs Lumpsum, Briefly</h2>
+      <p>If you already have a large corpus (bonus, maturity proceeds, property sale), a lumpsum deployed early compounds longer — but carries timing risk. For monthly salary income, SIP is the natural fit. We compare both in depth, with 10-year Nifty data, in our <a href="/blog/sip-vs-lumpsum-investment-india">SIP vs Lumpsum guide</a>, and you can model a one-time investment with the <a href="/lumpsum-calculator">Lumpsum Calculator</a>.</p>
+
+      <h2>Taxes: What Your Calculator Doesn't Show</h2>
+      <p>SIP calculators show pre-tax corpus. For equity funds, long-term gains (units held over 12 months) are taxed at 12.5% above ₹1.25 lakh per year; short-term gains at 20%. Remember that each installment ages separately — when you redeem a 10-year-old SIP, the last 12 months of installments are still short-term. Plan redemptions a year ahead of your goal to let recent units mature.</p>
+
+      <h2>Run Your Own Numbers</h2>
+      <p>Open the free <a href="/sip-calculator">SIP Calculator</a> — no login, no phone number — and try your actual monthly surplus at 10%, 12% and a 10% step-up. Then set up the SIP mandate this week, not "from next month". If you are also juggling loan EMIs, check our <a href="/emi-calculator">EMI Calculator</a> and read the <a href="/blog/emi-calculator-home-loan-india">home loan EMI guide</a> to balance debt repayment against investing. And for guaranteed-return options to pair with your SIP, see <a href="/blog/ppf-vs-fd-comparison-india">PPF vs FD</a>.</p>
+    `,
+  },
+  {
     slug: 'home-loan-emi-guide-india-2025',
     title: 'Home Loan EMI Guide India 2025: How to Calculate, Reduce & Save Lakhs',
     description: 'Complete guide to home loan EMI calculation in India. Learn the EMI formula, compare bank rates, discover prepayment strategies, and use our free EMI calculator to plan your dream home purchase.',

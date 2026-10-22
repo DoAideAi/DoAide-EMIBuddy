@@ -13,7 +13,7 @@ const NAV_LINKS = [
 
 const DOAIDE_PRODUCTS = [
   { href: 'https://doaide.com', label: 'DoAide Home' },
-  { href: 'https://emibuddy.doaide.com', label: 'EMIBuddy' },
+  { href: 'https://emi.doaide.com', label: 'EMIBuddy' },
 ]
 
 export default function Layout({ children }) {
