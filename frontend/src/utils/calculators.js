@@ -217,3 +217,102 @@ export function formatINRFull(num) {
   if (num === undefined || num === null) return '₹0'
   return `₹${num.toLocaleString('en-IN', { maximumFractionDigits: 2 })}`
 }
+
+// RD maturity with the bank convention: deposits credited monthly, interest
+// compounded quarterly on the running balance.
+export function calculateRD(monthlyDeposit, annualRate, tenureMonths) {
+  const quarterlyRate = annualRate / 4 / 100
+  let balance = 0
+  for (let m = 1; m <= tenureMonths; m++) {
+    balance += monthlyDeposit
+    if (m % 3 === 0) balance *= 1 + quarterlyRate
+  }
+  // Interest for a trailing partial quarter, pro-rated
+  const rem = tenureMonths % 3
+  if (rem > 0) balance *= 1 + quarterlyRate * (rem / 3)
+  const totalInvested = monthlyDeposit * tenureMonths
+  return {
+    maturityAmount: Math.round(balance * 100) / 100,
+    totalInvested: Math.round(totalInvested * 100) / 100,
+    totalInterest: Math.round((balance - totalInvested) * 100) / 100,
+  }
+}
+
+// Home loan vs rent: net worth after `years` for a buyer (property value minus
+// outstanding loan) vs a renter who invests the down payment and every month's
+// EMI-minus-rent difference.
+export function calculateRentVsBuy({
+  homePrice,
+  downPaymentPct = 20,
+  loanRate = 8.5,
+  loanTenureYears = 20,
+  monthlyRent,
+  rentIncreasePct = 5,
+  appreciationPct = 5,
+  investmentReturnPct = 12,
+  years = 10,
+}) {
+  const downPayment = homePrice * downPaymentPct / 100
+  const loanAmount = homePrice - downPayment
+  const tenureMonths = loanTenureYears * 12
+  const { emi } = calculateEMI(loanAmount, loanRate, tenureMonths)
+  const monthlyLoanRate = loanRate / 12 / 100
+  const monthlyInvReturn = investmentReturnPct / 12 / 100
+
+  let loanBalance = loanAmount
+  let corpus = downPayment // renter invests the down payment on day one
+  let rent = monthlyRent
+  let totalRentPaid = 0
+  let totalEmiPaid = 0
+
+  const horizon = years * 12
+  for (let m = 1; m <= horizon; m++) {
+    if (loanBalance > 0) {
+      const interest = loanBalance * monthlyLoanRate
+      loanBalance = Math.max(0, loanBalance + interest - emi)
+      totalEmiPaid += emi
+    }
+    corpus *= 1 + monthlyInvReturn
+    const outgoDiff = (m <= tenureMonths ? emi : 0) - rent
+    if (outgoDiff > 0) corpus += outgoDiff
+    totalRentPaid += rent
+    if (m % 12 === 0) rent *= 1 + rentIncreasePct / 100
+  }
+
+  const propertyValue = homePrice * Math.pow(1 + appreciationPct / 100, years)
+  const buyerNetWorth = propertyValue - loanBalance
+  const renterNetWorth = corpus
+  return {
+    emi: Math.round(emi * 100) / 100,
+    downPayment: Math.round(downPayment),
+    propertyValue: Math.round(propertyValue),
+    loanOutstanding: Math.round(loanBalance),
+    buyerNetWorth: Math.round(buyerNetWorth),
+    renterNetWorth: Math.round(renterNetWorth),
+    totalRentPaid: Math.round(totalRentPaid),
+    totalEmiPaid: Math.round(totalEmiPaid),
+    buyingWins: buyerNetWorth > renterNetWorth,
+    difference: Math.round(Math.abs(buyerNetWorth - renterNetWorth)),
+  }
+}
+
+// FD vs equity mutual fund for a lumpsum: FD interest taxed at the investor's
+// slab; equity MF gains taxed at 12.5% LTCG above the ₹1.25 lakh exemption.
+export function calculateFDvsMF(lumpsum, years, fdRate = 7, taxSlab = 30, mfReturn = 12) {
+  const fd = calculateFD(lumpsum, fdRate, years, 'quarterly', taxSlab)
+  const mfCorpus = lumpsum * Math.pow(1 + mfReturn / 100, years)
+  const mfGains = mfCorpus - lumpsum
+  const taxableGains = Math.max(0, mfGains - 125000)
+  const mfTax = taxableGains * 0.125
+  const mfPostTax = mfCorpus - mfTax
+  return {
+    fdMaturity: fd.maturityAmount,
+    fdPostTaxMaturity: fd.postTaxMaturity,
+    fdTax: fd.tax,
+    mfCorpus: Math.round(mfCorpus * 100) / 100,
+    mfTax: Math.round(mfTax * 100) / 100,
+    mfPostTaxMaturity: Math.round(mfPostTax * 100) / 100,
+    mfWins: mfPostTax > fd.postTaxMaturity,
+    difference: Math.round(Math.abs(mfPostTax - fd.postTaxMaturity) * 100) / 100,
+  }
+}

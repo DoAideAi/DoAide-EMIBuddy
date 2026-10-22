@@ -107,6 +107,9 @@ export default function Layout({ children }) {
                 <li><Link to="/fd-calculator" className="hover:text-da-primary transition-colors">FD Calculator</Link></li>
                 <li><Link to="/ppf-calculator" className="hover:text-da-primary transition-colors">PPF Calculator</Link></li>
                 <li><Link to="/nps-calculator" className="hover:text-da-primary transition-colors">NPS Calculator</Link></li>
+                <li><Link to="/rd-calculator" className="hover:text-da-primary transition-colors">RD Calculator</Link></li>
+                <li><Link to="/rent-vs-buy-calculator" className="hover:text-da-primary transition-colors">Home Loan vs Rent</Link></li>
+                <li><Link to="/fd-vs-mutual-fund" className="hover:text-da-primary transition-colors">FD vs Mutual Fund</Link></li>
               </ul>
             </div>
             <div>

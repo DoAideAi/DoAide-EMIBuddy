@@ -65,6 +65,27 @@ const CALCULATORS = [
     icon: '🔍',
     color: 'from-indigo-500/20 to-indigo-600/5',
   },
+  {
+    to: '/rd-calculator',
+    title: 'RD Calculator',
+    desc: 'Recurring Deposit maturity with quarterly compounding — same method banks use.',
+    icon: '📆',
+    color: 'from-amber-500/20 to-amber-600/5',
+  },
+  {
+    to: '/rent-vs-buy-calculator',
+    title: 'Home Loan vs Rent',
+    desc: 'Buy a house or keep renting and invest the difference? Compare net worth over time.',
+    icon: '🏘️',
+    color: 'from-orange-500/20 to-orange-600/5',
+  },
+  {
+    to: '/fd-vs-mutual-fund',
+    title: 'FD vs Mutual Fund',
+    desc: 'Post-tax comparison: FD at your slab rate vs equity mutual fund with 12.5% LTCG.',
+    icon: '🥊',
+    color: 'from-lime-500/20 to-lime-600/5',
+  },
 ]
 
 const BANK_LINKS = [

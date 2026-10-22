@@ -9,6 +9,9 @@ import {
   calculateNPS,
   calculatePrepayment,
   calculateAffordability,
+  calculateRD,
+  calculateRentVsBuy,
+  calculateFDvsMF,
   formatINR,
   formatINRFull,
 } from '../utils/calculators'
@@ -173,5 +176,99 @@ describe('formatINRFull', () => {
 
   it('handles null', () => {
     expect(formatINRFull(null)).toBe('₹0')
+  })
+})
+
+describe('calculateRD', () => {
+  it('matures to more than total deposits', () => {
+    const r = calculateRD(5000, 6.8, 60)
+    expect(r.totalInvested).toBe(300000)
+    expect(r.maturityAmount).toBeGreaterThan(r.totalInvested)
+    expect(r.totalInterest).toBeCloseTo(r.maturityAmount - r.totalInvested, 1)
+  })
+
+  it('matches the quarterly-compounding ballpark for a standard RD', () => {
+    // ₹5,000/month at 6.8% for 60 months ≈ ₹3.56-3.60 lakh maturity
+    const r = calculateRD(5000, 6.8, 60)
+    expect(r.maturityAmount).toBeGreaterThan(350000)
+    expect(r.maturityAmount).toBeLessThan(365000)
+  })
+
+  it('handles zero interest rate', () => {
+    const r = calculateRD(1000, 0, 12)
+    expect(r.maturityAmount).toBe(12000)
+    expect(r.totalInterest).toBe(0)
+  })
+
+  it('earns more with longer tenure', () => {
+    const short = calculateRD(5000, 7, 24)
+    const long = calculateRD(5000, 7, 48)
+    expect(long.totalInterest).toBeGreaterThan(short.totalInterest * 2)
+  })
+})
+
+describe('calculateRentVsBuy', () => {
+  const base = {
+    homePrice: 8000000,
+    downPaymentPct: 20,
+    loanRate: 8.5,
+    loanTenureYears: 20,
+    monthlyRent: 25000,
+    rentIncreasePct: 5,
+    appreciationPct: 5,
+    investmentReturnPct: 12,
+    years: 10,
+  }
+
+  it('computes EMI and both net worths', () => {
+    const r = calculateRentVsBuy(base)
+    expect(r.emi).toBeGreaterThan(50000)
+    expect(r.buyerNetWorth).toBeGreaterThan(0)
+    expect(r.renterNetWorth).toBeGreaterThan(0)
+    expect(r.downPayment).toBe(1600000)
+    expect(typeof r.buyingWins).toBe('boolean')
+  })
+
+  it('buying wins with high appreciation', () => {
+    const r = calculateRentVsBuy({ ...base, appreciationPct: 12, investmentReturnPct: 6 })
+    expect(r.buyingWins).toBe(true)
+  })
+
+  it('renting wins with flat property prices and strong investment returns', () => {
+    const r = calculateRentVsBuy({ ...base, appreciationPct: 0, investmentReturnPct: 14 })
+    expect(r.buyingWins).toBe(false)
+  })
+
+  it('rent paid grows with the escalation rate', () => {
+    const noEsc = calculateRentVsBuy({ ...base, rentIncreasePct: 0 })
+    const esc = calculateRentVsBuy({ ...base, rentIncreasePct: 8 })
+    expect(esc.totalRentPaid).toBeGreaterThan(noEsc.totalRentPaid)
+    expect(noEsc.totalRentPaid).toBe(25000 * 12 * 10)
+  })
+})
+
+describe('calculateFDvsMF', () => {
+  it('computes post-tax values for both options', () => {
+    const r = calculateFDvsMF(1000000, 10, 7, 30, 12)
+    expect(r.fdMaturity).toBeGreaterThan(1000000)
+    expect(r.fdPostTaxMaturity).toBeLessThan(r.fdMaturity)
+    expect(r.mfPostTaxMaturity).toBeLessThan(r.mfCorpus)
+    expect(typeof r.mfWins).toBe('boolean')
+  })
+
+  it('MF wins over long horizons at higher return', () => {
+    const r = calculateFDvsMF(1000000, 15, 7, 30, 12)
+    expect(r.mfWins).toBe(true)
+  })
+
+  it('FD wins when MF return is lower than FD post-tax', () => {
+    const r = calculateFDvsMF(1000000, 5, 8, 0, 4)
+    expect(r.mfWins).toBe(false)
+  })
+
+  it('applies the 1.25 lakh LTCG exemption', () => {
+    // Small gains fully inside the exemption → zero MF tax
+    const r = calculateFDvsMF(100000, 3, 7, 30, 10)
+    expect(r.mfTax).toBe(0)
   })
 })
