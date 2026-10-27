@@ -4,9 +4,10 @@ After=network.target
 
 [Service]
 Type=simple
-User=dev
-WorkingDirectory=/home/dev/projects/Products/DoAide-EMIBuddy/frontend
-ExecStart=/usr/bin/npx serve -s dist -l 3074
+WorkingDirectory=/opt/DoAide-EMIBuddy/frontend
+# No -s: dist/serve.json (written by scripts/prerender-routes.mjs) maps each
+# route to its prerendered HTML and ends with the SPA fallback.
+ExecStart=/usr/bin/npx serve dist -l tcp://172.18.0.1:3082 --no-clipboard
 Restart=always
 RestartSec=5
 

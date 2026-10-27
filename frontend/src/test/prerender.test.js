@@ -47,9 +47,10 @@ describe('withRoute', () => {
 })
 
 describe('serveConfig', () => {
-  it('rewrites every non-root route to its own file', () => {
+  it('rewrites every non-root route to its own file, then falls back to the SPA shell', () => {
     const { rewrites } = serveConfig(routes)
-    expect(rewrites).toHaveLength(routes.length - 1)
+    expect(rewrites).toHaveLength(routes.length)
     expect(rewrites).toContainEqual({ source: '/banks/sbi', destination: '/banks/sbi/index.html' })
+    expect(rewrites.at(-1)).toEqual({ source: '**', destination: '/index.html' })
   })
 })

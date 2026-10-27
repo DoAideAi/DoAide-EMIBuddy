@@ -56,11 +56,14 @@ export function withRoute(shell, route) {
     )
 }
 
+// The SPA fallback goes last. `serve -s` would put its own catch-all first and
+// shadow the per-route rewrites, so the web unit runs plain `serve dist`.
 export function serveConfig(routes) {
   return {
-    rewrites: routes
-      .filter((r) => r.path !== '/')
-      .map((r) => ({ source: r.path, destination: `${r.path}/index.html` })),
+    rewrites: [
+      ...routes.filter((r) => r.path !== '/').map((r) => ({ source: r.path, destination: `${r.path}/index.html` })),
+      { source: '**', destination: '/index.html' },
+    ],
     headers: [{ source: '/assets/**', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] }],
   }
 }
