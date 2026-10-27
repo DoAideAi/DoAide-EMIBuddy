@@ -51,6 +51,6 @@ describe('serveConfig', () => {
     const { rewrites } = serveConfig(routes)
     expect(rewrites).toHaveLength(routes.length)
     expect(rewrites).toContainEqual({ source: '/banks/sbi', destination: '/banks/sbi/index.html' })
-    expect(rewrites.at(-1)).toEqual({ source: '**', destination: '/index.html' })
+    expect(rewrites.at(-1)).toEqual({ source: '/:path([^.]*)', destination: '/index.html' })
   })
 })
