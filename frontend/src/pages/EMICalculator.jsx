@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { PieChart, Pie, Cell, AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -72,12 +73,7 @@ export default function EMICalculator() {
 
   return (
     <>
-      <SEO
-        title="EMI Calculator - Home Loan, Car Loan, Personal Loan"
-        description={`Free EMI calculator for ${config.label.toLowerCase()}. Calculate monthly EMI, total interest, and get amortization schedule. Compare home loan, car loan, personal loan and education loan EMI.`}
-        path="/emi-calculator"
-        keywords="EMI calculator, home loan EMI, car loan EMI, personal loan EMI, education loan EMI, amortization schedule, monthly installment calculator"
-      />
+      <SEO {...ROUTE_META['/emi-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-da-text mb-2">EMI Calculator</h1>

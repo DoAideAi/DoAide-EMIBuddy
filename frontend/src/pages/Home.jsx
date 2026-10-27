@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 
 const CALCULATORS = [
   {
@@ -100,11 +101,7 @@ const BANK_LINKS = [
 export default function Home() {
   return (
     <>
-      <SEO
-        description="Free EMI Calculator, SIP Calculator, Loan Comparison & Financial Planning Tools for India. Calculate home loan EMI, car loan EMI, SIP returns, FD, PPF & NPS. No login required."
-        keywords="EMI calculator, SIP calculator, home loan EMI calculator, car loan EMI, loan comparison, FD calculator, PPF calculator, NPS calculator, India financial calculator"
-        path="/"
-      />
+      <SEO {...ROUTE_META['/']} />
 
       <section className="max-w-6xl mx-auto px-4 py-16 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-da-text mb-4">

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import ShareButton from '../components/ShareButton'
 import { calculateEMI, formatINR, formatINRFull } from '../utils/calculators'
 
@@ -80,12 +81,7 @@ export default function LoanComparison() {
 
   return (
     <>
-      <SEO
-        title="Loan Comparison Calculator - Compare Home Loans"
-        description="Compare up to 3 loans side by side. Find the best EMI deal across banks. Compare interest rates, total interest, and monthly EMI."
-        path="/loan-comparison"
-        keywords="loan comparison, compare home loans, compare EMI, best loan rate, bank loan comparison India"
-      />
+      <SEO {...ROUTE_META['/loan-comparison']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">Loan Comparison</h1>

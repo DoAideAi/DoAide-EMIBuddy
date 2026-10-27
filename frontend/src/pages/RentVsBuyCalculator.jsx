@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -25,12 +26,7 @@ export default function RentVsBuyCalculator() {
 
   return (
     <>
-      <SEO
-        title="Home Loan vs Rent Calculator - Buy or Rent in India?"
-        description="Should you buy a house or keep renting in India? Compare net worth after 5-30 years: EMI, property appreciation, and rent-money invested in mutual funds. Free, no login."
-        path="/rent-vs-buy-calculator"
-        keywords="rent vs buy calculator India, home loan vs rent, buy or rent house India, rent vs EMI calculator, should I buy a house or rent"
-      />
+      <SEO {...ROUTE_META['/rent-vs-buy-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">Home Loan vs Rent Calculator</h1>

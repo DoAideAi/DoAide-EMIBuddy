@@ -6,57 +6,8 @@ import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
 import { calculateEMI, formatINR, formatINRFull } from '../utils/calculators'
-
-const BANKS = {
-  sbi: {
-    name: 'State Bank of India (SBI)',
-    short: 'SBI',
-    homeLoanRate: 8.50,
-    carLoanRate: 8.70,
-    personalLoanRate: 11.15,
-    educationLoanRate: 8.15,
-  },
-  hdfc: {
-    name: 'HDFC Bank',
-    short: 'HDFC',
-    homeLoanRate: 8.75,
-    carLoanRate: 8.80,
-    personalLoanRate: 10.75,
-    educationLoanRate: 9.50,
-  },
-  icici: {
-    name: 'ICICI Bank',
-    short: 'ICICI',
-    homeLoanRate: 8.75,
-    carLoanRate: 8.85,
-    personalLoanRate: 10.75,
-    educationLoanRate: 9.85,
-  },
-  axis: {
-    name: 'Axis Bank',
-    short: 'Axis',
-    homeLoanRate: 8.75,
-    carLoanRate: 8.90,
-    personalLoanRate: 10.49,
-    educationLoanRate: 9.70,
-  },
-  kotak: {
-    name: 'Kotak Mahindra Bank',
-    short: 'Kotak',
-    homeLoanRate: 8.75,
-    carLoanRate: 8.90,
-    personalLoanRate: 10.99,
-    educationLoanRate: 10.00,
-  },
-  pnb: {
-    name: 'Punjab National Bank (PNB)',
-    short: 'PNB',
-    homeLoanRate: 8.45,
-    carLoanRate: 8.65,
-    personalLoanRate: 10.40,
-    educationLoanRate: 8.55,
-  },
-}
+import { BANKS } from '../data/banks'
+import { bankMeta } from '../routeMeta'
 
 const COLORS = ['#3B82F6', '#EF4444']
 
@@ -68,6 +19,11 @@ export default function BankEMI() {
   const [loanType, setLoanType] = useState('home')
   const [tenure, setTenure] = useState(240)
 
+  const rateMap = bank && { home: bank.homeLoanRate, car: bank.carLoanRate, personal: bank.personalLoanRate, education: bank.educationLoanRate }
+  const rate = bank ? rateMap[loanType] : 0
+
+  const result = useMemo(() => calculateEMI(principal, rate, tenure), [principal, rate, tenure])
+
   if (!bank) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 text-center">
@@ -76,11 +32,6 @@ export default function BankEMI() {
       </div>
     )
   }
-
-  const rateMap = { home: bank.homeLoanRate, car: bank.carLoanRate, personal: bank.personalLoanRate, education: bank.educationLoanRate }
-  const rate = rateMap[loanType]
-
-  const result = useMemo(() => calculateEMI(principal, rate, tenure), [principal, rate, tenure])
 
   const pieData = [
     { name: 'Principal', value: result.principal },
@@ -91,12 +42,7 @@ export default function BankEMI() {
 
   return (
     <>
-      <SEO
-        title={`${bank.short} EMI Calculator - Home Loan, Car Loan, Personal Loan`}
-        description={`Calculate ${bank.name} loan EMI. Current home loan rate: ${bank.homeLoanRate}%, car loan: ${bank.carLoanRate}%, personal loan: ${bank.personalLoanRate}%. Free EMI calculator.`}
-        path={`/banks/${bankSlug}`}
-        keywords={`${bank.short} EMI calculator, ${bank.short} home loan, ${bank.short} car loan, ${bank.short} personal loan rate, ${bank.name} EMI`}
-      />
+      <SEO {...bankMeta(bankSlug, bank)} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">{bank.short} EMI Calculator</h1>

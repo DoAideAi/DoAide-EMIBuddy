@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -33,12 +34,7 @@ export default function SIPCalculator() {
 
   return (
     <>
-      <SEO
-        title="SIP Calculator - Systematic Investment Plan Returns"
-        description="Free SIP calculator. Calculate returns on systematic investment plans in mutual funds. See how your monthly SIP grows with compounding over time."
-        path="/sip-calculator"
-        keywords="SIP calculator, systematic investment plan, mutual fund SIP, SIP returns calculator, monthly investment calculator"
-      />
+      <SEO {...ROUTE_META['/sip-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-da-text mb-2">SIP Calculator</h1>

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -27,12 +28,7 @@ export default function PrepaymentCalculator() {
 
   return (
     <>
-      <SEO
-        title="Loan Prepayment Calculator - Save on Interest"
-        description="Calculate how much you save by making part-prepayments on your home loan or car loan. See interest savings and reduced tenure."
-        path="/prepayment-calculator"
-        keywords="loan prepayment calculator, part payment calculator, home loan prepayment, interest savings calculator, EMI prepayment"
-      />
+      <SEO {...ROUTE_META['/prepayment-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">Prepayment Calculator</h1>

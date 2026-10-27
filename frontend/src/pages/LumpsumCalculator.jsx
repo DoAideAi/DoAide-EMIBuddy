@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -33,12 +34,7 @@ export default function LumpsumCalculator() {
 
   return (
     <>
-      <SEO
-        title="Lumpsum Calculator - One-Time Investment Returns"
-        description="Free lumpsum investment calculator. Calculate returns on one-time investments in mutual funds, stocks, or other instruments."
-        path="/lumpsum-calculator"
-        keywords="lumpsum calculator, one time investment calculator, mutual fund lumpsum, investment growth calculator"
-      />
+      <SEO {...ROUTE_META['/lumpsum-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-da-text mb-2">Lumpsum Calculator</h1>

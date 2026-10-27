@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { PieChart, Pie, Cell, Tooltip } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -27,12 +28,7 @@ export default function FDCalculator() {
 
   return (
     <>
-      <SEO
-        title="FD Calculator - Fixed Deposit Maturity Calculator"
-        description="Free FD calculator with tax impact. Calculate fixed deposit maturity amount for monthly, quarterly, half-yearly and yearly compounding."
-        path="/fd-calculator"
-        keywords="FD calculator, fixed deposit calculator, FD maturity calculator, FD interest calculator, FD tax calculator"
-      />
+      <SEO {...ROUTE_META['/fd-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">FD Calculator</h1>

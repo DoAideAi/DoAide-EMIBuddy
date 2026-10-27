@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import BLOG_POSTS from '../data/blogPosts'
 
 export default function BlogList() {
   return (
     <>
-      <SEO
-        title="Financial Planning Blog"
-        description="Expert guides on home loan EMI, SIP vs lumpsum investing, PPF vs FD comparison, and more. Free financial planning tips for India."
-        keywords="financial blog India, EMI guide, SIP investment tips, PPF guide, FD comparison, personal finance India"
-        path="/blog"
-      />
+      <SEO {...ROUTE_META['/blog']} />
 
       <section className="max-w-4xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-3 text-center">Financial Planning Blog</h1>

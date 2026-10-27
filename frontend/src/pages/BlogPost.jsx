@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
+import { blogPostMeta } from '../routeMeta'
 import BLOG_POSTS from '../data/blogPosts'
 
 export default function BlogPost() {
@@ -8,48 +9,9 @@ export default function BlogPost() {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const blogPostingSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.description,
-    author: { '@type': 'Organization', name: 'EMIBuddy', url: 'https://emi.doaide.com' },
-    publisher: { '@type': 'Organization', name: 'DoAide', url: 'https://doaide.com' },
-    datePublished: post.datePublished,
-    dateModified: post.dateModified,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://emi.doaide.com/blog/${post.slug}` },
-    url: `https://emi.doaide.com/blog/${post.slug}`,
-    keywords: post.keywords,
-    articleSection: post.category,
-  }
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: post.faqs.map(faq => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-    })),
-  }
-
   return (
     <>
-      <Helmet>
-        <title>{post.title} | EMIBuddy</title>
-        <meta name="description" content={post.description} />
-        <meta name="keywords" content={post.keywords} />
-        <link rel="canonical" href={`https://emi.doaide.com/blog/${post.slug}`} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.description} />
-        <meta property="og:url" content={`https://emi.doaide.com/blog/${post.slug}`} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.description} />
-        <script type="application/ld+json">{JSON.stringify(blogPostingSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <SEO {...blogPostMeta(post)} />
 
       <article className="max-w-4xl mx-auto px-4 py-12">
         <nav className="mb-8">

@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -26,12 +27,7 @@ export default function AffordabilityCalculator() {
 
   return (
     <>
-      <SEO
-        title="What Can I Afford? - Reverse EMI Calculator"
-        description="Enter your monthly income and find out the maximum loan amount you can afford. Reverse EMI calculator for home loans, car loans."
-        path="/affordability-calculator"
-        keywords="what can I afford, reverse EMI calculator, loan eligibility calculator, home loan eligibility, maximum loan amount"
-      />
+      <SEO {...ROUTE_META['/affordability-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">What Can I Afford?</h1>

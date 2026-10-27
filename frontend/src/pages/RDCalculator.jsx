@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { PieChart, Pie, Cell, Tooltip } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -24,12 +25,7 @@ export default function RDCalculator() {
 
   return (
     <>
-      <SEO
-        title="RD Calculator - Recurring Deposit Maturity Calculator"
-        description="Free RD calculator for India. Calculate recurring deposit maturity amount and interest with quarterly compounding — the same method banks and post office use."
-        path="/rd-calculator"
-        keywords="RD calculator, recurring deposit calculator, RD maturity calculator, post office RD calculator, RD interest calculator India"
-      />
+      <SEO {...ROUTE_META['/rd-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">RD Calculator</h1>

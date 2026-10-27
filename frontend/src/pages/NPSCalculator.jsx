@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { PieChart, Pie, Cell, Tooltip } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -30,12 +31,7 @@ export default function NPSCalculator() {
 
   return (
     <>
-      <SEO
-        title="NPS Calculator - National Pension System Retirement"
-        description="Free NPS calculator. Calculate your National Pension System retirement corpus, lump sum amount, and estimated monthly pension."
-        path="/nps-calculator"
-        keywords="NPS calculator, national pension system, NPS retirement, pension calculator India, NPS return calculator"
-      />
+      <SEO {...ROUTE_META['/nps-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">NPS Calculator</h1>

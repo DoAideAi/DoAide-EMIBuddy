@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -24,12 +25,7 @@ export default function FDvsMutualFundCalculator() {
 
   return (
     <>
-      <SEO
-        title="FD vs Mutual Fund Calculator - Post-Tax Comparison India"
-        description="Compare fixed deposit vs equity mutual fund returns after tax in India. FD interest taxed at your slab vs 12.5% LTCG on equity funds. Free calculator, no login."
-        path="/fd-vs-mutual-fund"
-        keywords="FD vs mutual fund, FD vs mutual fund calculator, fixed deposit vs mutual fund India, FD vs equity returns after tax, where to invest FD or mutual fund"
-      />
+      <SEO {...ROUTE_META['/fd-vs-mutual-fund']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">FD vs Mutual Fund Calculator</h1>

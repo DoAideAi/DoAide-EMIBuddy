@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import SEO from '../components/SEO'
+import { ROUTE_META } from '../routeMeta'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
@@ -22,12 +23,7 @@ export default function PPFCalculator() {
 
   return (
     <>
-      <SEO
-        title="PPF Calculator - Public Provident Fund Returns"
-        description="Free PPF calculator. Calculate Public Provident Fund maturity amount over 15-50 years at current 7.1% interest rate. Tax-free returns under Section 80C."
-        path="/ppf-calculator"
-        keywords="PPF calculator, public provident fund calculator, PPF interest rate, PPF maturity calculator, section 80C"
-      />
+      <SEO {...ROUTE_META['/ppf-calculator']} />
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-2">PPF Calculator</h1>
