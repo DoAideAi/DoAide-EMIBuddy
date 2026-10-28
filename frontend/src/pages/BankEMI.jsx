@@ -5,6 +5,7 @@ import SEO from '../components/SEO'
 import InputSlider from '../components/InputSlider'
 import ResultCard from '../components/ResultCard'
 import ShareButton from '../components/ShareButton'
+import NotFound from './NotFound'
 import { calculateEMI, formatINR, formatINRFull } from '../utils/calculators'
 import { BANKS } from '../data/banks'
 import { bankMeta } from '../routeMeta'
@@ -24,14 +25,7 @@ export default function BankEMI() {
 
   const result = useMemo(() => calculateEMI(principal, rate, tenure), [principal, rate, tenure])
 
-  if (!bank) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-white mb-4">Bank not found</h1>
-        <Link to="/" className="text-brand-primary hover:underline">Go back home</Link>
-      </div>
-    )
-  }
+  if (!bank) return <NotFound />
 
   const pieData = [
     { name: 'Principal', value: result.principal },

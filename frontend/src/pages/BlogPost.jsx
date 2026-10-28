@@ -1,5 +1,6 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import NotFound from './NotFound'
 import { blogPostMeta } from '../routeMeta'
 import BLOG_POSTS from '../data/blogPosts'
 
@@ -7,7 +8,7 @@ export default function BlogPost() {
   const { slug } = useParams()
   const post = BLOG_POSTS.find(p => p.slug === slug)
 
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) return <NotFound />
 
   return (
     <>

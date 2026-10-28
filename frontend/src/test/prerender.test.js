@@ -1,10 +1,10 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it, expect } from 'vitest'
-import { SITE, allRoutes } from '../routeMeta'
+import { SITE, NOT_FOUND, allRoutes } from '../routeMeta'
 import { BANKS } from '../data/banks'
 import BLOG_POSTS from '../data/blogPosts'
-import { withRoute, serveConfig } from '../../scripts/prerender-routes.mjs'
+import { withRoute, notFoundPage, serveConfig } from '../../scripts/prerender-routes.mjs'
 
 const root = join(__dirname, '..', '..')
 const shell = readFileSync(join(root, 'index.html'), 'utf-8')
@@ -46,11 +46,24 @@ describe('withRoute', () => {
   })
 })
 
+describe('notFoundPage', () => {
+  it('is noindex, has no canonical or homepage tags, and has the 404 h1', () => {
+    const html = notFoundPage(shell)
+    expect(html).not.toContain('rel="canonical"')
+    expect(html).not.toContain('og:url')
+    expect(html.match(/<title[^>]*>/g)).toHaveLength(1)
+    expect(html).toContain(`<title data-rh="true">${NOT_FOUND.title}</title>`)
+    expect(html).toContain('<meta data-rh="true" name="robots" content="noindex" />')
+    expect(html).toContain(`<h1>${NOT_FOUND.h1}</h1>`)
+  })
+})
+
 describe('serveConfig', () => {
-  it('rewrites every non-root route to its own file, then falls back to the SPA shell', () => {
-    const { rewrites } = serveConfig(routes)
-    expect(rewrites).toHaveLength(routes.length)
+  it('rewrites every non-root route to its own file, with no SPA catch-all', () => {
+    const { rewrites, directoryListing } = serveConfig(routes)
+    expect(rewrites).toHaveLength(routes.length - 1)
     expect(rewrites).toContainEqual({ source: '/banks/sbi', destination: '/banks/sbi/index.html' })
-    expect(rewrites.at(-1)).toEqual({ source: '/:path([^.]+)', destination: '/index.html' })
+    expect(rewrites.every((r) => r.destination === `${r.source}/index.html`)).toBe(true)
+    expect(directoryListing).toBe(false)
   })
 })

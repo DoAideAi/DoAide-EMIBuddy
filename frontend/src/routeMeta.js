@@ -210,3 +210,11 @@ export function allRoutes(banks, posts) {
     ...Object.entries(banks).map(([slug, bank]) => bankMeta(slug, bank)),
   ]
 }
+
+// Any other URL. The build writes it to dist/404.html, which serve returns
+// with a 404 status; noindex and no canonical, so it never joins the index.
+export const NOT_FOUND = {
+  h1: 'Page not found',
+  title: 'Page Not Found | DoAide EMIBuddy',
+  description: "This page doesn't exist. Try one of EMIBuddy's free EMI, SIP, FD and loan calculators instead.",
+}

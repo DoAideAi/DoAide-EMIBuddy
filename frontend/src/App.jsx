@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 
 const EMICalculator = lazy(() => import('./pages/EMICalculator'))
 const SIPCalculator = lazy(() => import('./pages/SIPCalculator'))
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/banks/:bankSlug" element={<BankEMI />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </Layout>
